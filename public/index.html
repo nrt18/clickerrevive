@@ -19,13 +19,13 @@
   </body>
   <script>
     function postCount() {
-      fetch("https://a3b302cd-6652-4a96-947d-826fc13a6f60-00-c5lg7b35sqqs.kirk.replit.dev/api/count", {
+      fetch("https://tnstats.dev/api/count", {
         method: "POST",
       });
     }
 
     setInterval(() => {
-      fetch("https://a3b302cd-6652-4a96-947d-826fc13a6f60-00-c5lg7b35sqqs.kirk.replit.dev/api/count")
+      fetch("https://tnstats.dev/api/count")
         .then((res) => res.json())
         .then((data) => {
           document.getElementById("count").innerHTML = data.count;
