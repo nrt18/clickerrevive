@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TN Clicker</title>
+    <link rel="shortcut icon" href="toastify clicker.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="odometer.css" />
+    <script src="odometer.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <img src="tnclicker.png" alt="Tn Clicker Logo" width="110" />
+      <span id="count" class="odometer">0</span>
+      <button class="btn" onclick="postCount()">+1</button>
+    </div>
+  </body>
+  <script>
+    function postCount() {
+      fetch("https://a3b302cd-6652-4a96-947d-826fc13a6f60-00-c5lg7b35sqqs.kirk.replit.dev/api/count", {
+        method: "POST",
+      });
+    }
+
+    setInterval(() => {
+      fetch("https://a3b302cd-6652-4a96-947d-826fc13a6f60-00-c5lg7b35sqqs.kirk.replit.dev/api/count")
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("count").innerHTML = data.count;
+        });
+    }, 2000);
+  </script>
+</html>
