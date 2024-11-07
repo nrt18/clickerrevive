@@ -19,13 +19,13 @@
   </body>
   <script>
     function postCount() {
-      fetch("https://tnstats.dev/api/count", {
+      fetch("https://clicker.tnstats.dev/api/count", {
         method: "POST",
       });
     }
 
     setInterval(() => {
-      fetch("https://tnstats.dev/api/count")
+      fetch("https://clicker.tnstats.dev/api/count")
         .then((res) => res.json())
         .then((data) => {
           document.getElementById("count").innerHTML = data.count;
