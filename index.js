@@ -9,7 +9,7 @@ const db = new Enmap({
 	name: "db",
 	dataDir: "./db"
 })
-db.ensure("clicks", 0)
+db.ensure("clicks", 54940302)
 
 app.get("/api/count", (req, res) => {
 	res.json({
