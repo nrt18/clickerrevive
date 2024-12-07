@@ -18,8 +18,8 @@ app.get("/api/count", (req, res) => {
 })
 
 app.post("/api/count", (req, res) => {
-	db.math("clicks", "+", 51920163)
-	res.send("+51920163")
+	db.math("clicks", "+", 1)
+	res.send("+1")
 })
 
 const port = process.env.PORT || 80
