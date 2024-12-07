@@ -11,25 +11,35 @@
     <script src="odometer.js"></script>
   </head>
   <body>
+    <div class="overlay"></div>
     <div class="content">
-      <img src="tnclicker.png" alt="Tn Clicker Logo" width="110" />
+      <img src="tnclicker.png" alt="Tn Clicker Logo" width="140" />
+      <p class="subtitle">TN Clicker</p>
       <span id="count" class="odometer">0</span>
-      <button class="btn" onclick="postCount()">+1</button>
+      <button class="btn" onclick="postCount()">Click +1</button>
+      <div class="bottom">
+        <button class="btn transparent-btn" onclick="toggleTransparentMode()">Transparent Mode</button>
+      </div>
     </div>
   </body>
   <script>
     function postCount() {
-      fetch("https://clicker.tnstats.dev/api/count", {
+      fetch("./api/count", {
         method: "POST",
       });
     }
 
     setInterval(() => {
-      fetch("https://clicker.tnstats.dev/api/count")
+      fetch("./api/count")
         .then((res) => res.json())
         .then((data) => {
           document.getElementById("count").innerHTML = data.count;
         });
     }, 2000);
+
+    function toggleTransparentMode() {
+      const overlay = document.querySelector(".overlay");
+      overlay.style.background = "transparent";
+    }
   </script>
 </html>
