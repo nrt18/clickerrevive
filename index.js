@@ -9,7 +9,7 @@ const db = new Enmap({
 	name: "db",
 	dataDir: "./db"
 })
-db.ensure("clicks", 54940302)
+db.ensure("clicks", 0)
 
 app.get("/api/count", (req, res) => {
 	res.json({
@@ -18,8 +18,8 @@ app.get("/api/count", (req, res) => {
 })
 
 app.post("/api/count", (req, res) => {
-	db.math("clicks", "+", 1)
-	res.send("+1")
+	db.math("clicks", "+", 51920163)
+	res.send("+51920163")
 })
 
 const port = process.env.PORT || 80
